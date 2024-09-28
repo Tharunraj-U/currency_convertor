@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import ReactCountryFlag from "react-country-flag"
+import ReactCountryFlag from "react-country-flag";
+import GlitterEffect from './GlitterEffect';
 
 const currencies = [
   { code: 'USD', name: 'US Dollar', country: 'US' },
@@ -48,63 +49,66 @@ const CurrencyConverter = () => {
   };
 
   return (
-    <div className="currency-converter">
-      <h2>Currency Converter</h2>
-      <div className="input-group">
-        <label>From:</label>
-        <select
-          value={fromCurrency}
-          onChange={(e) => setFromCurrency(e.target.value)}
-          className="currency-select"
-        >
-          {currencies.map((currency) => (
-            <option key={currency.code} value={currency.code}>
-              <ReactCountryFlag countryCode={currency.country} svg /> {currency.code} - {currency.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="input-group">
-        <label>To:</label>
-        <select
-          value={toCurrency}
-          onChange={(e) => setToCurrency(e.target.value)}
-          className="currency-select"
-        >
-          {currencies.map((currency) => (
-            <option key={currency.code} value={currency.code}>
-              <ReactCountryFlag countryCode={currency.country} svg /> {currency.code} - {currency.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="input-group">
-        <label>Amount:</label>
-        <input
-          type="number"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          placeholder="Enter amount"
-          className="amount-input"
-        />
-      </div>
-      <button onClick={handleConvert} className="convert-button">Convert</button>
-      {result && (
-        <div className="result">
-          <h4>
-            <ReactCountryFlag countryCode={currencies.find(c => c.code === fromCurrency).country} svg />
-            {amount} {fromCurrency} = 
-            <ReactCountryFlag countryCode={currencies.find(c => c.code === toCurrency).country} svg />
-            {result.toFixed(2)} {toCurrency}
-          </h4>
+    <>
+      <GlitterEffect />
+      <div className="currency-converter">
+        <h2>Currency Converter</h2>
+        <div className="input-group">
+          <label>From:</label>
+          <select
+            value={fromCurrency}
+            onChange={(e) => setFromCurrency(e.target.value)}
+            className="currency-select"
+          >
+            {currencies.map((currency) => (
+              <option key={currency.code} value={currency.code}>
+                <ReactCountryFlag countryCode={currency.country} svg /> {currency.code} - {currency.name}
+              </option>
+            ))}
+          </select>
         </div>
-      )}
-      {error && (
-        <div className="error">
-          <h4>Error: {error}</h4>
+        <div className="input-group">
+          <label>To:</label>
+          <select
+            value={toCurrency}
+            onChange={(e) => setToCurrency(e.target.value)}
+            className="currency-select"
+          >
+            {currencies.map((currency) => (
+              <option key={currency.code} value={currency.code}>
+                <ReactCountryFlag countryCode={currency.country} svg /> {currency.code} - {currency.name}
+              </option>
+            ))}
+          </select>
         </div>
-      )}
-    </div>
+        <div className="input-group">
+          <label>Amount:</label>
+          <input
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            placeholder="Enter amount"
+            className="amount-input"
+          />
+        </div>
+        <button onClick={handleConvert} className="convert-button">Convert</button>
+        {result && (
+          <div className="result">
+            <h4>
+              <ReactCountryFlag countryCode={currencies.find(c => c.code === fromCurrency).country} svg />
+              {amount} {fromCurrency} = 
+              <ReactCountryFlag countryCode={currencies.find(c => c.code === toCurrency).country} svg />
+              {result.toFixed(2)} {toCurrency}
+            </h4>
+          </div>
+        )}
+        {error && (
+          <div className="error">
+            <h4>Error: {error}</h4>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 
