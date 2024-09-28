@@ -19,11 +19,11 @@ const GlitterEffect = () => {
   return (
     <Sparkle
       color="random"
-      count={30}
-      minSize={7}
+      count={3000}
+      minSize={17}
       maxSize={12}
       overflowPx={0}
-      fadeOutSpeed={30}
+      fadeOutSpeed={3}
       newSparkleOnFadeOut={true}
       flicker={false}
       pixelSize={1}

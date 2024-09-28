@@ -1,30 +1,7 @@
 import React, { useState } from 'react';
 import ReactCountryFlag from "react-country-flag";
 import GlitterEffect from './GlitterEffect';
-
-const currencies = [
-  { code: 'USD', name: 'US Dollar', country: 'US' },
-  { code: 'EUR', name: 'Euro', country: 'EU' },
-  { code: 'JPY', name: 'Japanese Yen', country: 'JP' },
-  { code: 'GBP', name: 'British Pound', country: 'GB' },
-  { code: 'AUD', name: 'Australian Dollar', country: 'AU' },
-  { code: 'CAD', name: 'Canadian Dollar', country: 'CA' },
-  { code: 'CHF', name: 'Swiss Franc', country: 'CH' },
-  { code: 'CNY', name: 'Chinese Yuan', country: 'CN' },
-  { code: 'SEK', name: 'Swedish Krona', country: 'SE' },
-  { code: 'NZD', name: 'New Zealand Dollar', country: 'NZ' },
-  { code: 'MXN', name: 'Mexican Peso', country: 'MX' },
-  { code: 'SGD', name: 'Singapore Dollar', country: 'SG' },
-  { code: 'HKD', name: 'Hong Kong Dollar', country: 'HK' },
-  { code: 'NOK', name: 'Norwegian Krone', country: 'NO' },
-  { code: 'KRW', name: 'South Korean Won', country: 'KR' },
-  { code: 'TRY', name: 'Turkish Lira', country: 'TR' },
-  { code: 'RUB', name: 'Russian Ruble', country: 'RU' },
-  { code: 'INR', name: 'Indian Rupee', country: 'IN' },
-  { code: 'BRL', name: 'Brazilian Real', country: 'BR' },
-  { code: 'ZAR', name: 'South African Rand', country: 'ZA' },
-  // ... (continue with more currencies to reach 100)
-];
+import currencies from './currencies';
 
 const CurrencyConverter = () => {
   const [fromCurrency, setFromCurrency] = useState('USD');
